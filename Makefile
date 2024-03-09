@@ -1,8 +1,6 @@
-define run
+define apply
 	@echo "Patching Runtime with ./$1/patch.diff..."
 	@git apply ./$1/patch.diff
-	@echo "Running $1 from source...\n"
-	@cd $1 && ../go-src/bin/go run ./cmd
 endef
 
 default:
@@ -12,7 +10,8 @@ clean: patch
 	@echo "Resetting Go to clean state..."
 	@git restore go-src
 
-build-go: clean
+build: clean
+	$(call apply,1-plugin-patch)
 	@echo "Building Go from source..."
 	@cd go-src/src && ./make.bash
 
