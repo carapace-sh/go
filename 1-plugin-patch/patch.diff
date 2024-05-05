@@ -1,23 +1,6 @@
-diff --git a/go-src/src/runtime/plugin.go b/go-src/src/runtime/plugin.go
-index 40dfefde17..eb933a8313 100644
---- a/go-src/src/runtime/plugin.go
-+++ b/go-src/src/runtime/plugin.go
-@@ -48,12 +48,12 @@ func plugin_lastmoduleinit() (path string, syms map[string]any, initTasks []*ini
- 			throw("plugin: new module data overlaps with previous moduledata")
- 		}
- 	}
--	for _, pkghash := range md.pkghashes {
--		if pkghash.linktimehash != *pkghash.runtimehash {
--			md.bad = true
--			return "", nil, nil, "plugin was built with a different version of package " + pkghash.modulename
--		}
--	}
-+	// for _, pkghash := range md.pkghashes {
-+	// 	if pkghash.linktimehash != *pkghash.runtimehash {
-+	// 		md.bad = true
-+	// 		return "", nil, nil, "plugin was built with a different version of package " + pkghash.modulename
-+	// 	}
-+	// }
- 
- 	// Initialize the freshly loaded module.
- 	modulesinit()
+diff --git a/go-src b/go-src
+--- a/go-src
++++ b/go-src
+@@ -1 +1 @@
+-Subproject commit 619b419a4b1506bde1aa7e833898f2f67fd0e83e
++Subproject commit 619b419a4b1506bde1aa7e833898f2f67fd0e83e-dirty
