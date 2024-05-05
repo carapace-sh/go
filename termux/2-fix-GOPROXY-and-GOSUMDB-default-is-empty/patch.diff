@@ -1,6 +1,15 @@
-diff --git a/go-src b/go-src
---- a/go-src
-+++ b/go-src
-@@ -1 +1 @@
--Subproject commit 619b419a4b1506bde1aa7e833898f2f67fd0e83e
-+Subproject commit 619b419a4b1506bde1aa7e833898f2f67fd0e83e-dirty
+diff --git a/src/cmd/go/internal/cfg/cfg.go b/src/cmd/go/internal/cfg/cfg.go
+index afb595a..f74f980 100644
+--- a/src/cmd/go/internal/cfg/cfg.go
++++ b/src/cmd/go/internal/cfg/cfg.go
+@@ -411,8 +411,8 @@ var (
+ 	GORISCV64 = envOr("GORISCV64", fmt.Sprintf("rva%du64", buildcfg.GORISCV64))
+ 	GOWASM    = envOr("GOWASM", fmt.Sprint(buildcfg.GOWASM))
+ 
+-	GOPROXY    = envOr("GOPROXY", "")
+-	GOSUMDB    = envOr("GOSUMDB", "")
++	GOPROXY    = envOr("GOPROXY", "https://proxy.golang.org,direct")
++	GOSUMDB    = envOr("GOSUMDB", "sum.golang.org")
+ 	GOPRIVATE  = Getenv("GOPRIVATE")
+ 	GONOPROXY  = envOr("GONOPROXY", GOPRIVATE)
+ 	GONOSUMDB  = envOr("GONOSUMDB", GOPRIVATE)

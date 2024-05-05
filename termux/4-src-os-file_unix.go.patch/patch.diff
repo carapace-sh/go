@@ -1,7 +1,7 @@
-diff --git a/go-src/src/os/file_unix.go b/go-src/src/os/file_unix.go
+diff --git a/src/os/file_unix.go b/src/os/file_unix.go
 index a527b23..3a302f9 100644
---- a/go-src/src/os/file_unix.go
-+++ b/go-src/src/os/file_unix.go
+--- a/src/os/file_unix.go
++++ b/src/os/file_unix.go
 @@ -392,7 +392,7 @@ func tempDir() string {
  	dir := Getenv("TMPDIR")
  	if dir == "" {

@@ -1,6 +1,6 @@
 define apply
 	@echo "Patching Runtime with ./$1/patch.diff..."
-	@git apply ./$1/patch.diff
+	@git -C go-src apply ../$1/patch.diff
 endef
 
 default:
@@ -31,4 +31,4 @@ build-termux: clean
 
 patch:
 	@echo "Creating patch..."
-	@git diff go-src > patch.diff
+	@git -C go-src diff > patch.diff
