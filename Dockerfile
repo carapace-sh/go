@@ -7,6 +7,6 @@ ADD . /go-src
 RUN cd /go-src && make build-termux
 
 FROM golang:1.22.1
-COPY --from=build --link /usr/local/go/ /usr/local/go
-COPY --from=build-termux --link /usr/local/go/ /usr/local/go-termux/
+COPY --from=build /usr/local/go/ /usr/local/go
+COPY --from=build-termux /usr/local/go/ /usr/local/go-termux/
 RUN ln -s /usr/local/go-termux/bin/go /usr/local/bin/go-termux
