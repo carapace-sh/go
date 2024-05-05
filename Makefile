@@ -8,8 +8,8 @@ default:
 
 clean: patch
 	@echo "Resetting Go to clean state..."
-	@git restore go-src
-	@git clean -f go-src
+	@git -C go-src restore .
+	@git -C go-src clean -f .
 
 build: clean
 	$(call apply,1-plugin-patch)
