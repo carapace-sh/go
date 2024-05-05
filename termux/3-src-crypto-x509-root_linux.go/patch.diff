@@ -1,0 +1,12 @@
+diff --git a/go-src/src/crypto/x509/root_linux.go b/go-src/src/crypto/x509/root_linux.go
+index 8e79ccb..1176471 100644
+--- a/go-src/src/crypto/x509/root_linux.go
++++ b/go-src/src/crypto/x509/root_linux.go
+@@ -8,6 +8,7 @@ import "internal/goos"
+ 
+ // Possible certificate files; stop after finding one.
+ var certFiles = []string{
++	"/data/data/com.termux/files/etc/tls/cert.pem",                  // Termux
+ 	"/etc/ssl/certs/ca-certificates.crt",                // Debian/Ubuntu/Gentoo etc.
+ 	"/etc/pki/tls/certs/ca-bundle.crt",                  // Fedora/RHEL 6
+ 	"/etc/ssl/ca-bundle.pem",                            // OpenSUSE
