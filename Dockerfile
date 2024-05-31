@@ -12,5 +12,6 @@ COPY --from=build-termux /usr/local/go/ /usr/local/go-termux/
 
 RUN apt-get update && apt-get install -y sdkmanager
 ENV NDK_VERSION r26d
+ENV ANDROID_VERSION 34
 RUN sdkmanager --install "ndk;${NDK_VERSION}"
 COPY go-termux.sh /usr/local/bin/go-termux
