@@ -1,4 +1,4 @@
 [submodule "go-src"]
 	path = go-src
 	url = https://github.com/golang/go
-	branch = release-branch.go1.22.2
+	branch = release-branch.go1.23.0

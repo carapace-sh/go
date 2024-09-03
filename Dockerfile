@@ -1,12 +1,12 @@
-FROM golang:1.22.1 as build
+FROM golang:1.23.0 as build
 COPY . /go-src
 RUN cd /go-src && make build
 
-FROM golang:1.22.1 as build-termux
+FROM golang:1.23.0 as build-termux
 COPY . /go-src
 RUN cd /go-src && make build-termux
 
-FROM golang:1.22.1
+FROM golang:1.23.0
 COPY --from=build /usr/local/go/ /usr/local/go
 COPY --from=build-termux /usr/local/go/ /usr/local/go-termux/
 
