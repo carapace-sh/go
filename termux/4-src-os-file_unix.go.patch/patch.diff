@@ -7,7 +7,7 @@ index a527b23..3a302f9 100644
  	if dir == "" {
  		if runtime.GOOS == "android" {
 -			dir = "/data/local/tmp"
-+			dir = "/data/data/com.termux/files/tmp"
++			dir = "/data/data/com.termux/files/usr/tmp"
  		} else {
  			dir = "/tmp"
  		}
