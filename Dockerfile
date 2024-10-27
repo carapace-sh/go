@@ -13,8 +13,8 @@ COPY --from=build /usr/local/go/ /usr/local/go
 COPY --from=build-termux /usr/local/go/ /usr/local/go-termux/
 
 RUN apt-get update && apt-get install -y sdkmanager
-ARG NDK_VERSION="r27b"
-ARG ANDROID_VERSION="35"
+ENV NDK_VERSION="r27b"
+ENV ANDROID_VERSION="35"
 RUN sdkmanager --install "ndk;${NDK_VERSION}"
 COPY go-android.sh /usr/local/bin/go-android
 COPY go-termux.sh /usr/local/bin/go-termux
