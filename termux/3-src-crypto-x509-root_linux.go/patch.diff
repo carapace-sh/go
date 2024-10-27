@@ -6,7 +6,7 @@ index 8e79ccb..1176471 100644
  
  // Possible certificate files; stop after finding one.
  var certFiles = []string{
-+	"/data/data/com.termux/files/etc/tls/cert.pem",                  // Termux
++	"/data/data/com.termux/files/usr/etc/tls/cert.pem",  // Termux
  	"/etc/ssl/certs/ca-certificates.crt",                // Debian/Ubuntu/Gentoo etc.
  	"/etc/pki/tls/certs/ca-bundle.crt",                  // Fedora/RHEL 6
  	"/etc/ssl/ca-bundle.pem",                            // OpenSUSE

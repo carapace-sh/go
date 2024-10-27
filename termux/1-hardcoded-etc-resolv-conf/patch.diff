@@ -25,7 +25,7 @@
  				switch c.mdnsTest {
  				case mdnsFromSystem:
 -					_, err := os.Stat("/etc/mdns.allow")
-+					_, err := os.Stat("/data/data/com.termux/files/etc/mdns.allow")
++					_, err := os.Stat("/data/data/com.termux/files/usr/etc/mdns.allow")
  					if err != nil && !errors.Is(err, fs.ErrNotExist) {
  						// Let libc figure out what is going on.
  						return hostLookupCgo, dnsConf
@@ -56,7 +56,7 @@
  
  func getSystemDNSConfig() *dnsConfig {
 -	resolvConf.tryUpdate("/etc/resolv.conf")
-+	resolvConf.tryUpdate("/data/data/com.termux/files/etc/resolv.conf")
++	resolvConf.tryUpdate("/data/data/com.termux/files/usr/etc/resolv.conf")
  	return resolvConf.dnsConfig.Load()
  }
  
@@ -65,7 +65,7 @@
  	// Set dnsConfig and lastChecked so we don't parse
  	// resolv.conf twice the first time.
 -	conf.dnsConfig.Store(dnsReadConfig("/etc/resolv.conf"))
-+	conf.dnsConfig.Store(dnsReadConfig("/data/data/com.termux/files/etc/resolv.conf"))
++	conf.dnsConfig.Store(dnsReadConfig("/data/data/com.termux/files/usr/etc/resolv.conf"))
  	conf.lastChecked = time.Now()
  
  	// Prepare ch so that only one update of resolverConfig may
