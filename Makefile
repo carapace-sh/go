@@ -25,6 +25,8 @@ build-termux: clean
 	$(call apply,termux/2-fix-GOPROXY-and-GOSUMDB-default-is-empty)
 	$(call apply,termux/3-src-crypto-x509-root_linux.go)
 	$(call apply,termux/4-src-os-file_unix.go.patch)
+	$(call apply,termux/5-src-runtime-cgo-cgo.go.patch)
+	$(call apply,termux/6-src-runtime-cgo-gcc_android.c.patch)
 
 	@echo "Building Go from source..."
 	@cd go-src/src && ./make.bash
