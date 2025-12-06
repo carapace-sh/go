@@ -16,5 +16,6 @@ RUN apt-get update && apt-get install -y sdkmanager
 ENV NDK_VERSION="r27b"
 ENV ANDROID_VERSION="35"
 RUN sdkmanager --install "ndk;${NDK_VERSION}"
+RUN ln -s /opt/android-sdk/ndk/* /opt/android-sdk/ndk/${NDK_VERSION}
 COPY go-android.sh /usr/local/bin/go-android
 COPY go-termux.sh /usr/local/bin/go-termux
