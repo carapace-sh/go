@@ -78,6 +78,19 @@ docker build . --tag ghcr.io/carapace-sh/go:latest
             adds `//go:build linux && !android` to pidfd files, creates `export_pidfd_test.go` |
 | `termux/10` | Skips `futex_time64`/`timer_settime64` on Android (32-bit); adds `GOOS != "android"` guards |
 
+## Source of truth for Termux patches
+
+The termux patches (1-10) are derived from the [official Termux Go package](https://github.com/termux/termux-packages/tree/master/packages/golang). When updating Go, always compare against that repo to catch missing patches:
+
+```
+https://github.com/termux/termux-packages/tree/master/packages/golang
+```
+
+Patches from the official repo that are **not applicable** to this fork:
+- `patch-script/remove-pidfd.sh` / `remove-futex_time64.sh` — these are wrapper scripts that substitute `@TERMUX_PREFIX@` at build time. In this repo the paths are hard-coded to `/data/data/com.termux/files/usr`.
+- `patch-script/fix-hardcoded-etc-resolv-conf.sh` — not needed here; the Makefile handles the `cp -T` step manually.
+- `golang-doc.subpackage.sh` — not relevant; this repo distributes binary images, not Termux `.deb` packages.
+
 ## Gotchas
 
 - **`go-src/` is a git submodule.** It is empty after `git clone` unless you run `git submodule update --init`. Most commands will fail without it.
