@@ -1,0 +1,22 @@
+diff --git a/src/runtime/os_linux32.go b/src/runtime/os_linux32.go
+index fc206bbac3..5a533c977e 100644
+--- a/src/runtime/os_linux32.go
++++ b/src/runtime/os_linux32.go
+@@ -54,7 +54,7 @@ var use64bitsTimeOn32bits bool
+ 
+ //go:nosplit
+ func futex(addr unsafe.Pointer, op int32, val uint32, ts *timespec, addr2 unsafe.Pointer, val3 uint32) int32 {
+-	if use64bitsTimeOn32bits {
++	if GOOS != "android" && use64bitsTimeOn32bits {
+ 		return futex_time64(addr, op, val, ts, addr2, val3)
+ 	}
+ 
+@@ -75,7 +75,7 @@ func timer_settime64(timerid int32, flags int32, new, old *itimerspec) int32
+ 
+ //go:nosplit
+ func timer_settime(timerid int32, flags int32, new, old *itimerspec) int32 {
+-	if use64bitsTimeOn32bits {
++	if GOOS != "android" && use64bitsTimeOn32bits {
+ 		return timer_settime64(timerid, flags, new, old)
+ 	}
+ 

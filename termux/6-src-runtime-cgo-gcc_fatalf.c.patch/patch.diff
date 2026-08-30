@@ -1,0 +1,13 @@
+diff --git a/src/runtime/cgo/gcc_fatalf.c b/src/runtime/cgo/gcc_fatalf.c
+index 2754414fc1..182b7ca4b0 100644
+--- a/src/runtime/cgo/gcc_fatalf.c
++++ b/src/runtime/cgo/gcc_fatalf.c
+@@ -5,7 +5,7 @@
+ //go:build unix
+ 
+ #include <stdarg.h>
+-#ifdef __ANDROID__
++#if defined(__ANDROID__) && !defined(__TERMUX__)
+ #include <android/log.h>
+ #endif
+ #include "libcgo.h"

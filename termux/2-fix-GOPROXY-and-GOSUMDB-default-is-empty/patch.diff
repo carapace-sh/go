@@ -1,15 +1,15 @@
 diff --git a/src/cmd/go/internal/cfg/cfg.go b/src/cmd/go/internal/cfg/cfg.go
-index afb595a..f74f980 100644
+index 78cbbb949e..2eb49f71fd 100644
 --- a/src/cmd/go/internal/cfg/cfg.go
 +++ b/src/cmd/go/internal/cfg/cfg.go
-@@ -411,8 +411,8 @@ var (
- 	GORISCV64 = envOr("GORISCV64", fmt.Sprintf("rva%du64", buildcfg.GORISCV64))
- 	GOWASM    = envOr("GOWASM", fmt.Sprint(buildcfg.GOWASM))
+@@ -476,8 +476,8 @@ var (
+ 	GOWASM, goWASMChanged       = EnvOrAndChanged("GOWASM", fmt.Sprint(buildcfg.GOWASM))
  
--	GOPROXY    = envOr("GOPROXY", "")
--	GOSUMDB    = envOr("GOSUMDB", "")
-+	GOPROXY    = envOr("GOPROXY", "https://proxy.golang.org,direct")
-+	GOSUMDB    = envOr("GOSUMDB", "sum.golang.org")
- 	GOPRIVATE  = Getenv("GOPRIVATE")
- 	GONOPROXY  = envOr("GONOPROXY", GOPRIVATE)
- 	GONOSUMDB  = envOr("GONOSUMDB", GOPRIVATE)
+ 	GOFIPS140, GOFIPS140Changed = EnvOrAndChanged("GOFIPS140", buildcfg.DefaultGOFIPS140)
+-	GOPROXY, GOPROXYChanged     = EnvOrAndChanged("GOPROXY", "")
+-	GOSUMDB, GOSUMDBChanged     = EnvOrAndChanged("GOSUMDB", "")
++	GOPROXY, GOPROXYChanged     = EnvOrAndChanged("GOPROXY", "https://proxy.golang.org,direct")
++	GOSUMDB, GOSUMDBChanged     = EnvOrAndChanged("GOSUMDB", "sum.golang.org")
+ 	GOPRIVATE                   = Getenv("GOPRIVATE")
+ 	GONOPROXY, GONOPROXYChanged = EnvOrAndChanged("GONOPROXY", GOPRIVATE)
+ 	GONOSUMDB, GONOSUMDBChanged = EnvOrAndChanged("GONOSUMDB", GOPRIVATE)
