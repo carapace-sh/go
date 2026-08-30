@@ -1,5 +1,5 @@
 diff --git a/src/crypto/x509/root_linux.go b/src/crypto/x509/root_linux.go
-index 8e79ccb..1176471 100644
+index 8e79ccb5f6..fea273e243 100644
 --- a/src/crypto/x509/root_linux.go
 +++ b/src/crypto/x509/root_linux.go
 @@ -8,6 +8,7 @@ import "internal/goos"

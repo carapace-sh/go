@@ -1,5 +1,5 @@
 diff --git a/src/runtime/plugin.go b/src/runtime/plugin.go
-index 4b6821b..40d1158 100644
+index 1a49dd61c7..184950328c 100644
 --- a/src/runtime/plugin.go
 +++ b/src/runtime/plugin.go
 @@ -51,12 +51,12 @@ func plugin_lastmoduleinit() (path string, syms map[string]any, initTasks []*ini

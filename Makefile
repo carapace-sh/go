@@ -26,7 +26,11 @@ build-termux: clean
 	$(call apply,termux/3-src-crypto-x509-root_linux.go)
 	$(call apply,termux/4-src-os-file_unix.go.patch)
 	$(call apply,termux/5-src-runtime-cgo-cgo.go.patch)
-	$(call apply,termux/6-src-runtime-cgo-gcc_android.c.patch)
+	$(call apply,termux/6-src-runtime-cgo-gcc_fatalf.c.patch)
+	$(call apply,termux/7-src-cmd-go-internal-lockedfile-internal-filelock-filelock_fcntl.go.patch)
+	$(call apply,termux/8-src-cmd-go-internal-lockedfile-internal-filelock-filelock_unix.go.patch)
+	$(call apply,termux/9-remove-pidfd)
+	$(call apply,termux/10-remove-futex_time64)
 
 	@echo "Building Go from source..."
 	@cd go-src/src && ./make.bash
